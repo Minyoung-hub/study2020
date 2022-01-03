@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Collapse</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h2>Button</h2>
+   <button class='btn btn-info'
+      data-toggle='collapse' data-target='#saying'>조르바</button>
+   <div id='saying' class='collapse'>
+      요새 와서는 이 사람은 좋은 사람, 저 사람은 나쁜 놈, 이런식입니다.
+      그리스인이든, 불가리아인이든 터키인이든 상관하지 않습니다. 좋은
+      사람이냐, 나쁜 놈이냐? 요새 내게 문제가 되는 건 이것뿐입니다. 
+      나이를 더 먹으면 (마지막으로 입에 들어갈 빵 덩어리에도 놓고 맹세합니다만)
+      이것도 상관하지 않을 겁니다. 좋은 사람이든 나쁜 놈이든 나는 그것들이 불쌍해요. 
+      모두가 한가집니다.
+   </div>
+   
+   <h2>Link Button</h2>
+   <a class='btn btn-info'
+      data-toggle='collapse' href='#saying2'>조르바</a>
+   <div id='saying2' class='collapse'>
+      요새 와서는 이 사람은 좋은 사람, 저 사람은 나쁜 놈, 이런식입니다.
+      그리스인이든, 불가리아인이든 터키인이든 상관하지 않습니다. 좋은
+      사람이냐, 나쁜 놈이냐? 요새 내게 문제가 되는 건 이것뿐입니다. 
+      나이를 더 먹으면 (마지막으로 입에 들어갈 빵 덩어리에도 놓고 맹세합니다만)
+      이것도 상관하지 않을 겁니다. 좋은 사람이든 나쁜 놈이든 나는 그것들이 불쌍해요. 
+      모두가 한가집니다.
+   </div>
+   
+   <h2>Panel</h2>
+   <div class='panel panel-default'>
+      <div class='panel-heading'>
+      	<div class='panel-title'>
+         <a href='#content1' data-toggle='collapse'>제목</a>
+        </div>
+      </div>
+      
+      <div id='content1' class='collapse panel-collapse'>
+         <div class='panel-body'>본문</div>
+         <div class='panel-footer'>바닥글</div>
+      </div>
+   </div>
+   
+   <h2>List Group</h2>
+   <div class='panel panel-default'>
+   	<div class='panel-heading'>
+   		<a href='#content2' data-toggle='collapse'>제목</a>
+   	</div>
+   	<div id='content2' class='collapse panel-collapse'>
+   		<ul class='list-group'>
+   			<li class='list-group-item'>1</li>
+   			<li class='list-group-item'>2</li>
+   			<li class='list-group-item'>3</li>
+   		</ul>
+   	</div>
+   </div>
+   
+   <h2>Accordion</h2>
+   <div class='panel-group' id='parent'>
+   	<div class='panel panel-default'>
+   		<div class='panel-heading'>
+   			<a data-toggle='collapse' data-parent='#parent' href='#c1'>제목1</a>
+   		</div>
+   		<div id ='c1' class='collapse panel-collapse'>
+   			<div class='panel-body'>
+   				요새 와서는 이 사람은 좋은 사람, 저 사람은 나쁜 놈, 이런식입니다.
+      			그리스인이든, 불가리아인이든 터키인이든 상관하지 않습니다. 좋은
+   				 사람이냐, 나쁜 놈이냐? 요새 내게 문제가 되는 건 이것뿐입니다. 
+ 	 			나이를 더 먹으면 (마지막으로 입에 들어갈 빵 덩어리에도 놓고 맹세합니다만)
+ 				이것도 상관하지 않을 겁니다. 좋은 사람이든 나쁜 놈이든 나는 그것들이 불쌍해요. 
+				모두가 한가집니다.
+   			</div>
+   		</div>
+   	</div>
+   	
+   	<div class='panel panel-default'>
+   		<div class='panel-heading'>
+   			<a data-toggle='collapse' data-parent='#parent' href='#c2'>제목2</a>
+   		</div>
+   		<div id ='c2' class='collapse panel-collapse'>
+   			<div class='panel-body'>
+   				요새 와서는 이 사람은 좋은 사람, 저 사람은 나쁜 놈, 이런식입니다.
+      			그리스인이든, 불가리아인이든 터키인이든 상관하지 않습니다. 좋은
+   				 사람이냐, 나쁜 놈이냐? 요새 내게 문제가 되는 건 이것뿐입니다. 
+ 	 			나이를 더 먹으면 (마지막으로 입에 들어갈 빵 덩어리에도 놓고 맹세합니다만)
+ 				이것도 상관하지 않을 겁니다. 좋은 사람이든 나쁜 놈이든 나는 그것들이 불쌍해요. 
+				모두가 한가집니다.
+   			</div>
+   		</div>
+   	</div>
+   	
+   	<div class='panel panel-default'>
+   		<div class='panel-heading'>
+   			<a data-toggle='collapse' data-parent='#parent' href='#c3'>제목3</a>
+   		</div>
+   		<div id ='c3' class='collapse panel-collapse'>
+   			<div class='panel-body'>
+   				요새 와서는 이 사람은 좋은 사람, 저 사람은 나쁜 놈, 이런식입니다.
+      			그리스인이든, 불가리아인이든 터키인이든 상관하지 않습니다. 좋은
+   				 사람이냐, 나쁜 놈이냐? 요새 내게 문제가 되는 건 이것뿐입니다. 
+ 	 			나이를 더 먹으면 (마지막으로 입에 들어갈 빵 덩어리에도 놓고 맹세합니다만)
+ 				이것도 상관하지 않을 겁니다. 좋은 사람이든 나쁜 놈이든 나는 그것들이 불쌍해요. 
+				모두가 한가집니다.
+   			</div>
+   		</div>
+   	</div>
+   </div>
+</body>
+</html>

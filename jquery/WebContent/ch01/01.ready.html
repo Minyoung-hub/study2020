@@ -1,0 +1,28 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+jQuery(document).ready(() => $('body').append('<p>one</p>'));
+	
+$(document).ready(() => $('body').append('<p>two</p>'));
+	
+let readyFn = () => $('body').append('<p>three</p>');
+$(document).ready(readyFn);
+	
+$(() => $('body').append('<p>drink</p>')); // 이 형태로 쓰기를 권장
+/*
+jQuery function은 jQuery라고 단어를 온전히 써도 되고, '$'로 표기해도 된다.
+1. jQuery()는 prameter로 객체'DOM'을 받는다. ( jQuert(document) )
+2. 사용은, parameter로 받은 객체를 jQuery객체로 변환(wrapping)하여 return 한다. 
+3. jQuery()객체를 만드는 목적은, jQuery라이브러리를 사용하기 위해서 이다.
+
+- ready function
+'ready'메서드는 parameter로 callBack을 받는다.
+
+1. callBack받을 Function에 내가 원하는 내용을 기술한다.
+2. server로부터 document를 받고 DOM을 사용하기 완성된 상태. (스스로 준비가 되었는지 판별한다.)
+3. 'ready'는 'DOM'이 준비가 되면, callBack을 호출한다.
+
+ready 상태(서버로부터 document를 받고 DOM이 완성된 상태)가 되었는지 검사하는 기능을 가지고 있다.
+ready는 DOM이 준비가 되면 callback을 호출한다.(DOM이 준비가 되지 않은 상태에서 작동하면 에러가 뜨기 때문)
+*/
+</script>

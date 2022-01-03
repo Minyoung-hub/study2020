@@ -1,0 +1,41 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+   $('li').each(function(i, e){  // 여기서의 each는 collection에 있는 원소값을 하나씩 읽어내서 callback에 넘겨준다.
+      console.log(i, e, this);
+   });
+   /*
+   0 <li id='a'~ <li id='a'~
+   1 <li id='b'~ <li id='b'~ 
+   2 <li id='c'~ <li id='c'~ 
+   */
+   
+   $('li').each(function(i, e){
+      console.log(i, $(e).text(), $(this).text());
+   });
+   /*
+   0 "Link1" "Link1"
+   1 "Link2" "Link2"
+   2 "Link3" "Link3"
+   */    // e 와 this는 동일하다는 것을 알 수 있다.
+   
+   $('input').each(function(i, e){
+      $(e).val($(e).val() + '%') // input의 value hello를 불러오고 거기에 %를 붙여준다. // val은 value속성값을 건드린다.
+   })
+   
+   $('input').val(function(i, v){  // val에 동적인 데이터를 넣고싶으면 파라미터로 function을 넣어주면 된다.
+      return v + '%';            // v에는 위에서 집어넣은 value인 hello%가 들어오고 또 %를 붙여서 리턴하므로 value는 hello%%가 된다.
+   });
+});
+</script>
+
+<ul>
+   <li id='a'><a href='#'>Link1</a></li>
+   <li id='b'><a href='#'>Link2</a></li>
+   <li id='c'><a href='#'>Link3</a></li>
+</ul>
+
+<form>
+   <input type='text' value='hello'/>
+</form>

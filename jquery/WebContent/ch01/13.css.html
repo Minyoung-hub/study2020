@@ -1,0 +1,20 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	console.log($('h1').css('font-size')); // 32px // css function은 객체에 style을 입힌다.
+	// css parameter로 css 속성명을 써준다. 속성명 하나만 써주면 속성명의 값을 읽어온다.
+	
+	$('h1.big').css('font-size', '100px');
+	// 파라미터를 속성명과 속성값 두개를 쓰면 수정 또는 추가해준다.
+	
+	$('h1.red').css({ // 두 개이상 속성을 주고싶으면 객체로 묶어서 써준다.
+		'font-size': '50px', // 잊지말자 '-' 들어갈때 스트링으로 key값 써주는거
+		color: 'red'
+	});
+});
+</script>
+
+<h1>HELLO</h1>
+<h1 class = 'big'>WORLD</h1>
+<h1 class = 'red'>JAVA</h1>

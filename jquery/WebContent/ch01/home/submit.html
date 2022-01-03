@@ -1,0 +1,20 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	$('button').click(() => {
+		let phoneNumber = $('input').val();
+		
+		if(phoneNumber) {
+			$('input').val(phoneNumber.replace(/[^0-9]/g ,'')); // [^0-9]/g = 0-9 까지 숫자가 아니면
+			$('span').text('');
+		} else $('span').text(' phone Number is empty.');
+	});
+});
+</script>
+
+<form>
+	<input type='tel'/><span></span>
+	<br>
+	<button type = 'button'>확인</button>
+</form>

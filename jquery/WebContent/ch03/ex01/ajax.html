@@ -1,0 +1,31 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+   $('button').click(() => { 
+      $.ajax({ // $: jQuery
+         url: 'data.json', // 리퀘스트에 담을 주소.
+         data: {id: 'yellow'}, // 리퀘스트에 담을 데이터
+         type: 'get', 
+         dataType: 'json', // 리스폰스에 담겨있는 데이터 타입
+         success: (data, status, xhr) => { // 성공 리스폰스를 받았을 때의 핸들러 // data에는 제이슨 데이터가 객체화되서 들어갈 것이다.(json의 데이터타입은 스트링이다)
+            $('<h3>').text(data.name).appendTo('body'); // able이 나타난다
+            $('<p>').html(status).appendTo('body'); // status에는 성공했는지, 실패했는지 여부가 담겨있다. 성공하면 success가 나옴
+            console.log(xhr); // xhr은 리스폰스의 정보가 담겨있는 객체
+         },
+         error: (xhr, status, msg) =>{
+            $('<p>').html(status + ']' + msg).appendTo('body');
+            console.log(xhr);
+         },
+         complete: (xhr, status) => { // 꼭 해야하는 사후처리가 있으면 complete에 써주면 된다. // 성공, 실패 여부에 상관없이 실행됨
+            $('<p>').html(status).appendTo('body');
+            console.log(xhr);
+         }
+         // url과 success는 필수적으로 써줘야 하고 나머지는 안써줘도 된다.
+      })
+   }) 
+});
+</script>
+
+<button type='button'>submit</button> 
+<!-- 버튼을 클릭하면 data를 reponse로 받는다. -->

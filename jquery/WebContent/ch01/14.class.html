@@ -1,0 +1,22 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	var h = $('h1');
+	
+	h.addClass('blue');
+	h.removeClass('blue');
+	h.toggleClass('blue'); // class가 있으면 없애주고 없으면 만들어주는 것
+	
+	if(h.hasClass('blue'))
+		console.log('blue'); // blue
+		
+	});
+</script>
+<style>
+.blue{
+	color: blue;
+}
+</style>
+<h1>HELLO</h1>
+<h1>WORLD</h1>

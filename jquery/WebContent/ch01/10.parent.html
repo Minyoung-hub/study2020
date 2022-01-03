@@ -1,0 +1,42 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	console.log($('.4').parent()); // div.3 (부모)
+	
+	console.log($('.4').parents()); // 부모들
+/* 0: div.3
+   1: div.2-1
+   2: div.1
+   3: pre
+   4: body
+   5: html */
+   
+   console.log($('.4').parents('div')); // 부모들 중 div인 부모들만 골라낸다.
+/* 0: div.3
+   1: div.2-1
+   2: div.1 */
+   
+   console.log($('.4').parentsUntil('div.1')); // 부모들 중 div.1 미만인 부모들만 골라낸다.
+/* 0: div.3
+   1: div.2-1 */
+   
+   console.log($('.4').closest('div')); // 0: div.4 // 나랑 가장 가까운 div는 나다.
+   
+   
+});
+</script>
+
+<pre>
+1<div class='1'>
+  2-1<div class='2-1'>
+      3<div class='3'>
+        4<div class='4'></div>
+	   </div>
+	 </div>
+  2-2<div class='2-2'>
+	 </div>
+  2-3<div class='2-3'>
+	 </div>
+</div>
+</pre>

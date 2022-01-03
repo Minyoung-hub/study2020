@@ -1,0 +1,14 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+   $('a').click((e) => {
+// 브라우저에는 이벤트에 대한 기본 핸들러가 준비되어있는게 있다. 그 기본 핸들러의 작동을 막고싶을때 쓴다. (기본 핸들러가 막혀서 페이지 이동이 안됐음)
+      e.preventDefault(); // 핸들러를 차단시킨다.
+      $('body').append('<p>prevent default</p>');
+      // 접근 권한이 있으면 핸들러를 작동시킬 수 있게 하고 아니면 차단시키는 기능을 구현할 때 사용할 수 있다.
+   });
+});
+</script>
+
+<a href='http://jquery.com/'>jquery</a>

@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+   $(() =>{
+      $('select').change(() => { // 마우스로 옵션을 클릭할 때마다 옵션이 바뀌는 change이벤트가 발생한다.
+         $('p').html($('#fruits').val() + " / " + $('#greens').val().join(',')); // val이 읽어온 값의 parameter는 array가 된다.
+      });
+   });
+</script>
+<style>
+p{
+   margin-top: 30px;
+}
+</style>
+
+<select id='fruits'>
+   <option>apple</option>
+   <option>pear</option>
+</select>
+
+<select id='greens' multiple>
+   <option>cucumber</option>
+   <option>cabbage</option>
+   <option>carrot</option>
+</select>
+<p></p>

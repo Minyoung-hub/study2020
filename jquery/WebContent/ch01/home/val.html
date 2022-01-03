@@ -1,0 +1,28 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+   $('button').click(() => {
+		if($('input[name="phoneNumber"]').val()) {
+			let greet = $('input[name="phoneNumber"]').val();
+			   
+			   arr = Array.from(greet);
+			   let phone = [];
+			   
+			   for(let num of arr){
+				   if(isNaN(num) == false)
+					   phone.push(num);
+			   }
+			   $('input').val(phone.join(''));
+			   $('span').text(phone.join(''));
+		}
+		else $('span').text('phone number is empty.');
+	});
+});
+
+</script>
+<form action='#'>
+	<input type='text' name='phoneNumber'/>
+	<button type = 'button'>확인</button>
+</form>
+<span></span>

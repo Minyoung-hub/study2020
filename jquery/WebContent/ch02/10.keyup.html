@@ -1,0 +1,12 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+   $('input').keyup(function(){   // arrow펑션을 사용하면 this를 사용할 수 없다. this를 사용하려면 일반 펑션을 사용해줘야함
+      $('p').text($(this).val())
+   })   // 입력하는대로 입력한 값이 텍스트로 나타난다.
+});
+</script>
+
+<input type='text'/>
+<p></p>

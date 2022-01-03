@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>sweetAlert</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script>
+   function alert1(){   
+      swal("메세지");
+   }
+   
+   function alert2(){   
+      swal("메세지", "부연설명");
+   }
+   
+   function alert3(){   
+      swal("메세지", "부연설명", "success");
+   }
+   
+   function alert4(){
+      swal({
+         title: "삭제하시겠습니까?",
+         text: "삭제된 파일은 복구되지 않습니다.",
+         type: "warning",
+         showCancelButton: true,
+         cancelButtonText: "아니오",
+         confirmButtonText: "네",
+         closeOnConfirm: false
+      },
+      function(){
+         swal("성공", "파일이 삭제 되었습니다.", "success");
+      });
+   }
+   
+   function alert5(){
+      swal({
+         title: "삭제하시겠습니까?",
+         text: "삭제된 파일은 복구되지 않습니다.",
+         type: "warning",
+         showCancelButton: true,
+         cancelButtonText: "아니오",
+         confirmButtonText: "네",
+         closeOnConfirm: false,
+         closeOnCancel: false
+      },
+      function(isConfirm){
+         if(isConfirm){   
+         swal("성공", "파일이 삭제 되었습니다.", "success");
+         }else{
+            swal("취소", "파일은 보존됩니다.", "error");
+         }
+      });
+   }
+</script>
+</head>
+<body>
+   <div class="container">
+      <h2>Sweet Alert</h2>
+      <button class="btn btn-default" type="button" onClick="alert('메세지')">javascript</button>
+      <button class="btn btn-primary"  type="button" onClick="alert1()">기본</button>
+      <button class="btn btn-info"  type="button" onClick="alert2()">부연설명</button>
+      <button class="btn btn-success"  type="button" onClick="alert3()">작업성공</button>
+      <button class="btn btn-warning"  type="button" onClick="alert4()">작업확인</button>
+      <button class="btn btn-danger"  type="button" onClick="alert5()">작업확인</button>
+   </div>
+
+
+</body>
+</html>

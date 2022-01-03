@@ -1,0 +1,25 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(()=>{
+	for(let i=1; i<=10; i++)
+		$('<li>', {html: 'item' + i}).appendTo($('ul').eq(0));
+	
+	   $('hr').eq(0).append('<p>1</p>');
+	   $('hr').eq(0).append('<p>2</p>');
+	   
+	   $('hr').eq(1).html('<p>1</p>');
+	   $('hr').eq(1).html('<p>2</p>');
+	
+	/* for(let i=0; i<5; i++)
+		$('<li>').appendTo('ul');
+	for(let i=0; i<10; i++)
+		$('li').eq(i).html('index:' + i); */
+})
+</script>
+
+<ul></ul>
+<hr>
+<hr>
+<hr>
+<ul></ul>

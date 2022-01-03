@@ -1,0 +1,17 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	$('button').click('hello', (e) => { // 이벤트 객체에는 데이터라는 키가 있다.(여기서 이벤트 객체 안에 있는 data는 'hello')
+		let userName = $('input').val();
+		if(userName == e.data) $('span').text(`correct: ${e.data}`);
+		else $('span').text('incorrect').show().fadeOut(1000);
+	})
+});
+</script>
+
+<form>
+	<input type='text' name='userName'/>
+	<button type='button'>확인</button>
+</form>
+<span></span>

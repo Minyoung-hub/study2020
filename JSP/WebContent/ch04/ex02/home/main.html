@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<h3>상품</h3>
+<form action = 'cartProc.jsp' method = 'post'>
+	<ul>
+		<li>노트북<input type='checkbox' name='prod' value='노트북'></li>
+		<li>모니터<input type='checkbox' name='prod' value='모니터'></li>
+		<li>마우스<input type='checkbox' name='prod' value='마우스'></li>
+		<li>메모리<input type='checkbox' name='prod' value='메모리'></li>
+	</ul>
+	<button type='submit'>장바구니에 담기</button>
+	<button type='submit' formaction='cartOut.jsp'>장바구니를 보기</button>
+	<button type='submit' formaction='cartDel.jsp'>장바구니에서 삭제</button>
+</form>

@@ -1,0 +1,24 @@
+<!-- 
+전화번호 입력 필드입니다.
+사용자가 숫자 이외의 문자를 입력했을 경우, 
+위 문자를 제거 한다.
+필드엔 숫자만 남아있다.
+ -->
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	let phone = $('input').val();
+	
+	let refinedPhone = '';
+	for(let char of phone)
+		if('0' <= char && char <= '9')
+			refinedPhone += char;
+	
+	$('input').val(refinedPhone);
+});
+</script>
+<form action='#'>
+	<input type='text' value='phoneNumber'/>
+</form>
+<span></span>

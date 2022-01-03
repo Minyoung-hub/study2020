@@ -1,0 +1,53 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+   let greet = $(':text');
+   console.log('|' + greet.val() + '|'); // | hello | // 입력한 값을 받아와서 출력한다.
+   // val안에 parameter값이 없이 호출하면 주어의 value 속성을 읽는다.
+    
+   greet.val(greet.val().trim());   // trim으로 스페이스를 없애고 다시 val에 넣어준다.
+   console.log('|' + greet.val() + '|'); // |hello|
+   
+   greet.val((i, v) => `${v} world`); // i: index, v: value
+   console.log(greet.val()); // hello world
+   
+   //
+   $(':checked').each((i, e) => console.log($(e).val())); 
+   // html element이면 jQuery 메서드를 호출할 수 없다. 따라서 $(e)로 순수한 element들을 jQuery 객체로 변환시켜주면 jQuery 메서드를 호출할 수 있게 된다.
+   /*
+   night
+   mountain
+   apple
+   */
+   
+   $('input').val(['noon', 'sea']); // 다섯 개의 인풋 객체에게 다 작동한다. // val 파라미터가 객체로 나왔다면 라디오, 셀렉트, 체크박스를 지칭할 확률이 높다.
+   // 사용자의 입력 없이 명령문으로 체크박스와 라디오 값 선택 가능
+   
+   $('#fruit').val('banana');   // select도 선택된 값 변경 가능
+   $('#greens').val(['cucumber', 'carrot']);
+});
+</script>
+
+<form>
+   <input type='text' value=' hello '/>
+   <br>
+   
+   <input type='checkbox' value='night' checked/>밤
+   <input type='checkbox' value='noon'/>낮
+   <br>
+   
+   <input type='radio' value='mountain' checked/>산
+   <input type='radio' value='sea'/>바다
+   
+   <select id='fruit'>
+      <option>apple</option>
+      <option>banana</option>
+   </select>
+   
+   <select id='greens' multiple>  <!-- multiple 속성을 두면 여러개 선택 가능 -->
+      <option>cucumber</option>
+      <option>cabbage</option>
+      <option>carrot</option>
+   </select>
+</form>

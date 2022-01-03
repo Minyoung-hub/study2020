@@ -1,0 +1,49 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	console.log($('a').attr('href')); // a.html // 두개의 객체가 들어있는 컬렉션 하나, 그 중에서도 0번째 객체 값만이 리턴된다.
+	
+	console.log($('a').eq(0).attr('href')); // a.html
+	console.log($('a').eq(1).attr('href')); // b.html
+	
+	$('a').attr('href', (idx, href) => '/new/'+ href);
+	console.log($('a').eq(0).attr('href')); // /new/a.html
+	console.log($('a').eq(1).attr('href')); // /new/b.html
+	
+	$('a').attr('href', 'c.html'); // 쓰기는 parameter 값을2개줌(첫번째는 속성명, 두번째는 속성값)
+	console.log($('a').attr('href')); // c.html
+	
+	//'a' 객체가 들어있는 모든 것의 이름을 바꿈 그래서 두개 다 이름이 바뀐다.
+	console.log($('a').eq(0).attr('href')); // c.html
+	console.log($('a').eq(1).attr('href')); // c.html
+	
+	$('a').attr({
+		href: 'd.html'
+	});
+	
+	console.log($('a').eq(0).attr('href')); // d.html
+	console.log($('a').eq(1).attr('href')); // d.html
+	
+	// 속성값을 function을 이용해서 동적으로 만들어 낼 수 있다.
+	$('a').attr('href', (idx, href) => '/new/'+ href);
+	
+	console.log($('a').eq(0).attr('href')); // /new/d.html
+	console.log($('a').eq(1).attr('href')); // /new/d.html
+	
+	$('a').attr({
+		rel: 'nofollow',
+		href:(idx, href) => '/new/' + href
+	});
+	console.log($('a').eq(0).attr('href')); // /new//new/d.html
+	console.log($('a').eq(1).attr('href')); // /new//new/d.html
+	
+	$('a').removeAttr('href');
+	console.log($('a').eq(0).attr('href')); // undefined
+	console.log($('a').eq(1).attr('href')); // undefined
+});
+	
+</script>
+
+<a href='a.html'>A</a>
+<a href='b.html'>B</a>

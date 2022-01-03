@@ -1,0 +1,40 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(()=>{
+	$('<div>').appendTo('hr'); // 태그명만 쓰면 찾겠다는 의미이고 꺽쇠까지 쓰면 추가한다는 의미이다.
+	
+	$('<div>', {
+		html: '<p class="center">red</p>',
+		class: 'red'
+	}).insertAfter('hr');
+})
+</script>
+<style>
+div {
+	background-color: orange;
+	width: 100;
+	height: 100;
+	border-radius: 50px;
+}
+
+hr {
+	border: 1px solid black;
+}
+
+.red {
+	background-color: red;
+	position: relative;
+}
+
+p.center {
+	position: absolute;
+	left: 35;
+	top: 20;
+	font-weight: bold;
+}
+</style>
+<hr>
+<div class = 'red'>
+<p class="center">red</p>
+</div>

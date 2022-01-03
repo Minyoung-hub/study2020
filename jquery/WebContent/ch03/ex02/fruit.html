@@ -1,0 +1,56 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+   let table = $('tbody');
+   $('button').click(() => {
+      $.ajax({
+         url: 'data.json',
+         success: (data) => {
+            let fruits = data.fruits;
+            
+            for(let rowCur in fruits){ // in을 쓰면 rowCur에 인덱스가 들어간다.
+               let fruit = fruits[rowCur];
+               let colIdx = 0;
+               for(let key in fruit) {
+                  let text = fruit[key];
+                  let tr = table.find('tr').eq(rowCur);
+                  let td = tr.find('td').eq(colIdx++);
+                  td.text(text);
+               }
+            }
+         }
+         //서버로부터 테이블하나를 받고 버튼을 누르면 커서이동을 하면서 데이터가 들어간다.
+      });
+   })
+});
+</script>
+
+<style>
+* {
+   margin: 20px;
+}
+
+table {
+   border-collapse: collapse;
+}
+
+td{
+   border: 1px solid black;
+   width: 100px;
+   height: 30px;
+   text-align: center;
+}
+</style>
+
+<button type='button'>load</button>
+
+<table>
+   <thead>
+      <tr><td>이름</td><td>가격</td><td>기한</td><td>생산지</td></tr>
+   </thead>
+   <tbody>
+      <tr><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td></tr>
+   </tbody>
+</table>

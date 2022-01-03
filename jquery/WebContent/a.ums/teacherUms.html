@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<title>UMS</title>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script>
+const users = []; // 사용자들
+let userNoSeq = 0; // 사용자 번호 시퀀스
+
+// 쓰기 작업 결과 출력창을 띄운다.
+function alert(text, type){
+   swal({
+      title: '',
+      text,
+      type,
+      customClass: 'sweet-size',   // 스타일 부여
+      timer: 1000,   // 1초동안 스윗얼럿창 지속
+      showConfirmButton: false   // 확인 버튼 없음.
+   })
+}
+
+// 목록란에 메세지를 출력 한다.
+function tellMsg(msg){
+   $('#userList').empty();   //유저 리스트 초기화
+   $('#userList').append(
+         '<tr><td colspan="3"><b>' + msg + '</b></td></tr>');
+}
+
+// 사용자명을 입력했는지 조사한다.
+function isUserName(){
+   let result = false;
+   if($('#userName').val()) result = true;
+   return result;
+}
+
+// 사용자번호를 입력했는지 조사한다.
+function isUserNo(){
+   let result = false;
+   if($('#userList :radio:checked').length) result = true;
+   return result;
+}
+
+// GNB에 handler를 등록한다.
+function init(){
+   //사용자 목록
+   $('#list').on('click',()=>{
+      $('#userList').empty();   // 목록 초기화
+      
+      if(users.length > 0){
+         let userList = [];
+         $.each(users, (idx, user) => {
+            userList.push(
+               `<tr>
+                  <td><input type='radio' name='userNo'/>&nbsp;&nbsp;&nbsp;
+                  ${user.userNo}</td>
+                  <td>${user.userName}</td>
+                  <td>${user.regDate}</td>
+               </tr>`
+            );
+         });
+         $('#userList').append(userList.join(''));
+      }else{
+         tellMsg('사용자가 없습니다.')   
+      }
+   })
+   
+   // 사용자 추가
+   $('#add').on('click',()=>{
+      if(isUserName()){
+         let today = new Date();
+         let user = {
+               userNo: ++userNoSeq,
+               userName: $('#userName').val(),
+               regDate: `${today.getFullYear()} - 
+                     ${(today.getMonth()+1)} - 
+                     ${today.getDate()}`
+         }
+         users.push(user);
+         
+         alert('사용자를 추가했습니다.', 'success');
+         $('#userName').val('');
+         tellMsg('목록 버튼을 누르세요.');
+      }else{
+         alert('사용자명을 입력하세요','warning');
+      }
+   });
+   
+   // 사용자 수정
+   $('#update').on('click',()=>{
+      if(isUserNo() && isUserName()){
+         let userNo = $('#userList :radio:checked').parent().text().trim();
+         $.each(users, (idx, user) => {
+            if(user.userNo == userNo){
+               user.userName = $('#userName').val();
+               alert('사용자 정보를 수정했습니다.','success');
+               $('#userName').val('');
+               return false;
+            }
+         });
+         
+         telMsg('목록 버튼을 누르세요.');
+      }else{
+         alert('사용자 번호 선택과, 이름을 입력하세요.','warning');
+      }
+   });
+   
+   // 사용자 삭제
+   $('#del').on('click',() =>{
+      if(isUserNo()){
+         let userNo = $('#userList :radio:checked').parent().text().trim();
+         $.each(users, (idx, user) => {
+            if(user.userNo == userNo){
+               users.splice(users.indexOf(user), 1);
+               alert('사용자를 삭제했습니다.', 'success');
+               return false; // break효과.
+            }
+         })
+         
+         tellMsg('목록 버튼을 누르세요.');
+      }else{
+         alert('사용자 번호를 선택하세요.','warning');
+      }
+   })
+}
+
+$(init);
+</script>
+<style>
+      header{
+         border: solid black 1px;
+       text-align: center;
+      }   
+   
+      table, th {
+       text-align: center;
+      }
+   
+      form, table{
+      margin-top: 20px;
+      }
+   
+   .sweet-size{
+         width: 300px;
+         height: 200px;
+   }
+</style>
+</head>
+<body>
+   <div class='container'>
+      <header>
+         <h3>U M S</h3>
+      </header>
+      
+      <form>
+         <!-- 입력창 -->
+         <div class='form-group'>
+            <input id='userName' type='text' class='form-control' placeholder='사용자명'/>
+         </div>
+         <!-- 버튼 -->
+         <div class='btn-group btn-group-justified'>
+            <a class='btn btn-default' id='list'>
+               <span class='glyphicon glyphicon-list'></span> 목록
+            </a>
+            <a class='btn btn-default' id='add'>
+               <span class='glyphicon glyphicon-plus'></span> 추가
+            </a>
+            <a class='btn btn-default' id='update'>
+               <span class='glyphicon glyphicon-asterisk'></span> 수정
+            </a>
+            <a class='btn btn-default' id='del'>
+               <span class='glyphicon glyphicon-remove'></span> 삭제
+            </a>
+         </div>
+      </form>
+         
+         <!-- 리스트 -->
+      <table class='table table-hover'>
+         <thead>
+            <tr>
+               <th>번호</th>
+               <th>이름</th>
+               <th>등록일</th>
+            </tr>
+         </thead>
+         <tbody id='userList'>
+            <tr>
+               <td colspan='3'>사용자가 없습니다.</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</body>
+</html>

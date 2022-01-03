@@ -1,0 +1,15 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => { // trigger: 해당 콘텍스트에 이벤트를 발생시킨다.
+   $('#two').click(() => $('span').text('two'));
+   
+   $('#one').click(() => $('#two').trigger('click')); // one을 눌렀을 때 two버튼에 클릭이라는 이벤트를 발생시킨것 
+                                         //trigger는 다른객체에 이벤트를 발생시킬 수 있다. (two.click으로 해도 가능)   
+                                         
+});
+</script>
+
+<button type='button' id='one'>one</button>
+<button type='button' id='two'>two</button>
+<span></span>

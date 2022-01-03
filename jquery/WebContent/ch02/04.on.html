@@ -1,0 +1,14 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	$('button').on('click', () => $('span').text('clicked.'));
+	
+	$('button').on({
+		mouseover: () => $('span').text(' mouseover '), // 객체 구조에서 키는 객체 이름을 넣어야 한다. 핸들러는 마음대로 써도된다.
+		mouseout: () => $('span').text(' mouseout '),
+	})
+});
+</script>
+
+<button type='button'>confirm</button><span></span>

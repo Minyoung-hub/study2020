@@ -1,0 +1,19 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+   $('button').click(() => $('form').submit());
+   
+   $('input[name="userPw"]').keydown((e) => {  
+      if(e.keyCode == 13) $('button').click(); // key 이벤트별로 keycode가 있다. 
+                                    //keycode.info 홈페이지에 들어가면 keycode를 알 수 있다. 
+                                    // enter key code값은 13, 0~9 keycode 48~57
+   })
+});
+</script>
+
+<form>
+   <label>ID <input type='text' name='userId'></label><br>
+   <label>PW <input type='password' name='userPw'/></label><br>
+   <button type='button'>login</button>
+</form>

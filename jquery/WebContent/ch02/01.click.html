@@ -1,0 +1,12 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	$('button').click(() => $('span').text('clicked.').css('font-style', 'italic')); // 클릭 앞에는 버튼뿐만아니라 이미지 등 다른 것이 올 수도 있다.
+	// $('button').click(() => $('span').html('<i>clicked.</i>');
+	
+});
+</script>
+
+<button type='button'>확인</button>
+<span></span>

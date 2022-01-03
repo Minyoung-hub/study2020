@@ -1,0 +1,16 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src = 'http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js'></script>
+<script>
+$(() => {
+	$('form').vaildate();
+});
+</script>
+
+<form>
+	<label>NAME : <input type='text' minlength='2' required></label><br>
+	<label>EMAIL : <input type='email' required></label><br>
+	<label>ADDR : <input type='url'/></label><br>
+	<label>MEMO : </label><textarea required></textarea><br>
+	<button type='submit'>submit</button>
+</form>

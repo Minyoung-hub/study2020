@@ -1,0 +1,21 @@
+<meta charset='utf-8'>
+<script src='http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(()=>{
+   let $collection1 = $('div');   // jQuery 객체(콜렉션)리턴  jquery 객체가 들어있음을 나타내기 위해 변수앞에 $를 붙임
+   let $div1 = $('div').eq(0);      // eq도 jQuery 객체(콜렉션) 리턴 // div객체가 들어있는 collection 하나를 return한다
+   let div1 = $collection1.get(0);   // get은 돔 자체(html element)를 리턴
+   
+   console.log($collection1, $div1, div1); // k.fn.init(1) k.fn.init(1) <div></div>
+   
+   let $collection2 = $('div');
+   let $div2 = $collection2.eq(0);
+   let div2 = $collection.get(0);
+   
+   console.log($collection1 === $collection2); // false. 주소가 다르면 다른객체
+   console.log($div1 === $div2); // false. eq도 서로다른객체를 리턴하고 있음을 알 수 있다.
+   console.log(div1 === div2); // true. get은 매번 새로운 객체를 만들지 않고 같은것을 리턴한다.
+});   
+</script>
+
+<div></div>

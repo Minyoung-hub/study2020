@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id = 'pistol' class='spring.core.ch01.ex02.Pistol'/>
+	<bean id = 'rifle' class='spring.core.ch01.ex02.Rifle'/>
+	
+	<bean id = 'shooter1' class='spring.core.ch01.ex02.Shooter'>
+		<constructor-arg value='최한석'/> <!-- 생성자의 첫번쨰 argument -->
+		<constructor-arg ref='pistol'/> <!-- constructor-arg 생성시에 생성자에 전달할 함수 -->
+	</bean>
+	
+	<bean id = 'shooter2' class='spring.core.ch01.ex02.Shooter'>
+		<property name='name' value='한아름'/> <!-- property는 setter를 통해서 DI 시키는 것 -->
+		<property name='gun' ref='rifle'/>
+	</bean>
+</beans>

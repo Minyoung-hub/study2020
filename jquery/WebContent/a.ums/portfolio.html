@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>MINYOUNG PORTFOLIO</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+function fnMove(seq){
+    var offset = $("#div" + seq).offset();
+    $('html, body').animate({scrollTop : offset.top}, 400);
+}
+$(() => {
+	var typingBool = false; 
+	var typingIdx=0; 
+	var typingTxt = $(".typing-txt").text(); // 타이핑될 텍스트를 가져온다 
+	typingTxt=typingTxt.split(""); // 한글자씩 자른다. 
+	if(typingBool==false){ // 타이핑이 진행되지 않았다면 
+		typingBool=true; 
+	
+		var tyInt = setInterval(typing,150); // 반복동작 
+	} 
+	
+	function typing(){ 
+		if(typingIdx<typingTxt.length){ // 타이핑될 텍스트 길이만큼 반복 
+			$(".typing").append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
+			typingIdx++; 
+		} else{ 
+			clearInterval(tyInt); //끝나면 반복종료 
+		} 
+	}
+	
+	$(window).on("scroll", function(){
+		if(500 < $(window).scrollTop() && $(window).scrollTop() < 1100){
+			$('.nav').css('color', 'black');
+			$('.about').css("border-bottom", "2px solid black");         
+			$('.home').css("border-bottom", "0px solid");
+			$('.skill').css("border-bottom", "0px solid");
+			$('.i').fadeIn('slow');
+			$('.right').fadeIn(2200);
+		}else if($(window).scrollTop() <= 500){
+			$('.nav').css('color', 'white');
+			$('.home').css("border-bottom", "2px solid white");         
+			$('.about').css("border-bottom", "0px solid");
+			$('.i').fadeOut();
+			$('.right').fadeOut();
+		}else if(1100 <= $(window).scrollTop() && $(window).scrollTop() < 1500){
+			$('.nav').css('color', 'white');
+			$('.skill').css("border-bottom", "2px solid white");          
+			$('.about').css("border-bottom", "0px solid");
+			$('.project').css("border-bottom", "0px solid");
+			$('.i').fadeOut();
+			$('.right').fadeOut();
+		}
+	})
+	
+	$('.home').click( () => {
+		$('.nav').css('color', 'white');
+		$('.home').css("border-bottom", "2px solid white");         
+		$('.about').css("border-bottom", "0px solid");  
+		$('.skill').css("border-bottom", "0px solid");
+		$('.project').css("border-bottom", "0px solid");
+		$('.contact').css("border-bottom", "0px solid");
+	});
+	
+	$('.about').click(() => {
+		$('.nav').css('color', 'black');
+		$('.about').css("border-bottom", "2px solid black");         
+		$('.home').css("border-bottom", "0px solid");  
+		$('.skill').css("border-bottom", "0px solid");
+		$('.project').css("border-bottom", "0px solid");
+		$('.contact').css("border-bottom", "0px solid");
+	});
+	
+	$('.skill').click( () => {
+		$('.nav').css('color', 'white');
+		$('.skill').css("border-bottom", "2px solid white");         
+		$('.home').css("border-bottom", "0px solid");  
+		$('.about').css("border-bottom", "0px solid");
+		$('.project').css("border-bottom", "0px solid");
+		$('.contact').css("border-bottom", "0px solid");
+	});
+	
+	$('.contact').click( () => {
+		$('.contact').css("border-bottom", "2px solid white");         
+		$('.home').css("border-bottom", "0px solid");  
+		$('.skill').css("border-bottom", "0px solid");
+		$('.project').css("border-bottom", "0px solid");
+		$('.about').css("border-bottom", "0px solid");
+	});
+	
+	$('.project').click( () => {
+		$('.project').css("border-bottom", "2px solid white");         
+		$('.home').css("border-bottom", "0px solid");  
+		$('.skill').css("border-bottom", "0px solid");
+		$('.about').css("border-bottom", "0px solid");
+		$('.contact').css("border-bottom", "0px solid");
+	});
+	
+});
+</script>
+<style>
+.nav{
+	position: fixed;
+	display: flex;
+	border-bottom:1px solid lightgray; 
+	width: 100%;
+	padding-top: 30px;
+	margin-bottom: 40px;
+	color: white;
+	opacity: 0.8;
+}
+
+.home, .about, .skill, .project, .contact{
+	height: 50px;
+	width: 150px;
+	font-size: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.home{
+	border-bottom: 2px solid white;
+}
+
+.first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../img/laptop.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    width: 100%;
+}
+
+h1.typing-txt{
+	display: none;
+}
+  
+
+.typing {  
+	display: inline-block; 
+	animation-name: cursor; 
+	animation-duration: 1s; 
+	animation-iteration-count: infinite;
+	font-weight: bolder;
+	font-size: 50px;
+	letter-spacing: 1;
+} 
+
+@keyframes cursor{ 
+	0%{border-right: 1px solid #fff} 
+	50%{border-right: 1px solid #A593E0} 
+	100%{border-right: 1px solid #fff} 
+}
+
+.second {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+
+.left{
+	display: flex;
+	flex: 1;
+}
+
+.right{
+	flex: 1;
+	margin-right: 60px;
+}
+
+.img1{
+	margin-top: 85px;
+	margin-left: 30px;
+}
+
+.img2{
+	margin-top: 85px;
+	margin-right: 50px;
+}
+
+.i{
+	width: 230px;
+	height: 230px;
+	margin-left: 10px;
+	margin-bottom: 15px;
+}
+
+.title{
+	font-size: 35px;
+	font-weight: bolder;
+	margin-top: 70px;
+	margin-left: 10px;
+}
+
+.content{
+	font-size: 18px;
+}
+
+.third {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #A593E0;
+    color: white;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+<div class='nav'>
+	<div class='home' onclick="fnMove('1')">HOME</div>
+	<div class='about' onclick="fnMove('2')">ABOUT ME</div>
+	<div class='skill' onclick="fnMove('3')">SKILL</div>
+	<div class='project' onclick="fnMove('4')">PROJECT</div>
+	<div class='contact' onclick="fnMove('5')">CONTACT ME</div>
+</div>
+
+<div class='first' id = "div1">
+	<h1 class="typing-txt">Developer 권민영의 포트폴리오입니다</h1>
+	<h1 class="typing"></h1>
+</div>
+
+<div class='second' id = "div2">
+	<div class='left'>
+		<div class='img1'>
+			<img class ='i' id="one" src="../img/1.jpg">
+			<img class ='i' id="two" src="../img/2.jpg">
+		</div>
+		<div class='img2'>
+			<img class ='i' id="three" src="../img/3.jpg">
+			<img class ='i' id="four" src="../img/4.jpg">
+		</div>
+	</div>
+	<div class='right'>
+		<div class='title'>권민영은 <br>배우는게 즐거운 <br>개발자 입니다.<br></div>
+		<div class='content'>
+			<br>
+			농어촌 고등학교에서 프로그래밍의 'ㅍ'자도 모르고 지냈습니다. 2015년 세종대학교 전자정보통신공학과에 입학하고
+			C언어 수업을 들었습니다. 그 때 처음으로 공부가 재밌다는 생각을 했습니다. 하지만 전자정보통신공학과는 하드웨어를
+			 다루는 학과였고 프로그래밍을 접할 기회가 많이 없었습니다. 그래서 저는 추가로 JAVA수업을 수강하고 웹 개발자가 
+			 되고자하는 꿈을 키웠습니다. 2019년 12월부터 2020년 7월까지 1,040 시간 동안 자바 기반 융합형 SW개발자 양성과정을
+			 이수했고 그 과정에서 두번의 프로젝트를 진행하고 정보처리기사 자격증을 취득했습니다. 프로그래밍 공부는 너무 재밌었고
+			 앞으로도 배울 수 있는 언어와 기술이 많다는 사실이 설레고 기대됩니다.
+		</div>
+	</div>
+</div>
+<div class='third' id = 'div3'>
+	<div class='programming'>
+		<div class='language'></div>
+		<div class='tech'></div>
+		<div class=''></div>
+	</div>
+	<div class='etc'>
+	
+	</div>
+</div>
+
+</body>
+</html>

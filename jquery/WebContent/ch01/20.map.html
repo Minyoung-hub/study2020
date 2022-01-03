@@ -1,0 +1,44 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(init);
+$(init2);
+
+function init() {
+	let arr = [];
+	$('li').each(function(){
+		arr.push(this.id)
+	})
+	
+	console.log(arr); // [ 'a', 'b', 'c' ]
+	
+	let obj = $('li').map(function() { // map은 callback에서 return 해주는 값을 원소로 가지고 있는 collection을 return 해준다.
+		return this.id; // this 변수 안에는 주어 컬렉션 안에 있던 원소 객체가 들어간다. li 객체는 순수한 elements이다.
+	});
+	console.log(obj); // [ 'a', 'b', 'c' ]
+}
+
+function init2() {
+	let arr = [{
+		id: 'a',
+		tagName: 'li'
+	},{
+		id: 'b',
+		tagName: 'li'
+	},{
+		id: 'c',
+		tagName: 'li'
+	}];
+	
+	let result = $.map(arr, function(v, i){
+		return v.id;
+	}); 
+	console.log(result); // [ 'a', 'b', 'c' ]
+}
+// 자바스크립트 객체에 대해서는 제이쿼리를 못쓴다.
+</script>
+<ul>
+	<li id= 'a'><a href = '#'>Link 1</a></li>
+	<li id= 'b'><a href = '#'>Link 2</a></li>
+	<li id= 'c'><a href = '#'>Link 3</a></li>
+</ul>

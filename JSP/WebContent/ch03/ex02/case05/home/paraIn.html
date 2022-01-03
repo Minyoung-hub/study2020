@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<h2>설문 조사</h2>
+<form action="paraProc.jsp" method="post">
+	<table>
+		<tr>
+			<th>이름</th>
+			<td><input type="text" name="userName" size="10"/></td>
+		</tr>
+		<tr>
+			<th>성별</th>
+			<td>
+				<input type="radio" name="gender" value="male">남
+				<input type="radio" name="gender" value="female">여
+			</td>
+		</tr>
+		<tr>
+			<th>계절</th>
+			<td>
+				<input type="checkbox" name="season" value="봄">봄
+				<input type="checkbox" name="season" value="여름">여름
+				<input type="checkbox" name="season" value="가을">가을
+				<input type="checkbox" name="season" value="겨울">겨울
+			</td>
+		</tr>
+		<tr>
+			<th>직업</th>
+			<td>
+				<select name='job'>
+					<option>회사원</option>
+					<option>자영업</option>
+					<option>학생</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<button type='submit'>제출</button>
+</form>

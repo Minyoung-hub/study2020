@@ -1,0 +1,15 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(()=>{
+	let items = [];
+	for(let i=0; i<10; i++)
+		items.push('<li>item ' + i + '</li>');
+	
+	$(items.join('')).appendTo('ul');
+})
+</script>
+
+<ul></ul>
+<hr>
+<ul></ul>

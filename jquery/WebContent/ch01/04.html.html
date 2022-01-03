@@ -1,0 +1,38 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	console.log($('h1').html()); // head
+	console.log($('h1').eq(1).html()); // hello
+	
+	$('footer').html('<mark>foot</mark>'); // html을 string타입을 줘서 호출하면 이 parameter를 주어 객체의 자식으로 넣어준다.
+	console.log($('footer').html()); // <mark>foot</mark>
+	
+	/** chaining **/
+	$('header').find('h1').eq(1).html('<hr>'); // jQuery가 return하는 객체.find(주어 객체의 자식을 찾을 때 find를 쓴다.)
+	console.log($('h1').eq(1).html()); // <hr>
+	
+	$('header').find('h1').eq(2).html('<hr>');
+	console.log($('h1').eq(2).html()); // undefined
+	
+	$('h1').eq(1).append('<h1>someting</h1>');
+	console.log($('h1').eq(2).html()); // something
+	
+	$('ul').find('li').eq(2).html('index: 2').end() // end를 호출하면 원점으로 돌아간다.(원점 : find('li'))
+				 	  .eq(3).html('index: 3').end()
+					  .eq(4).html('index: 4');
+});
+</script>
+
+<header>
+	<h1>head</h1>
+	<h1>hello</h1>
+</header>
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+<footer></footer>

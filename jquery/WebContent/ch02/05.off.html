@@ -1,0 +1,24 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	$('div').on({
+		mouseout : () => $('div').css('background', ''),
+		mousedown: () => $('div').css('background', 'red'),
+		mouseup  : () => $('div').css('background', 'blue'),
+	})
+	
+	$('button').click(() => $('div').off('mouseup')); // 해당 이벤트에 붙어있던 핸들러가 사라진다.
+});
+</script>
+<style>
+div {
+	   width: 100px;
+	   height: 100px;
+	   border-radius: 50px;
+	   border: 1px solid black;
+	}
+</style>
+
+<div></div><br>
+<button type='button'>remove</button>

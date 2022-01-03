@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>UMS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+$(() => {
+   let date = new Date();
+   let num = 1;
+   function userCk(){
+   if($('tbody').find('tr').length == 0){
+	   $('<div id= "noUser" class= "alert alert-warning" style="text-align: center;">사용자가 없습니다.</div>').insertAfter('table');
+   }else $('#noUser').remove();
+   }
+   userCk();
+   $('#list').click(() => {
+	   $('input[name=userName]').val('');
+	   $('input[name=userNo]').prop('checked',false);
+   })
+   
+   $('#add').click(() => {
+	   if($('input[name=userName]').val()){
+		   let name = $('input[name=userName]').val();
+		   $('tbody').append(`<tr>
+		   <td><input type='radio' name='userNo' value='${num}'/>&nbsp;&nbsp;${num}</td>
+		   <td>${name}</td>
+		   <td>${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}</td></tr>`);
+		   num++;
+		   swal("성공", $('input[name="userName"]').val()+"이(가) 등록 되었습니다.", "success");
+		   $('input[name=userName]').val('');
+		   $('input[name=userNo]').val('');
+		}else {
+			swal("실패", "이름을 입력해주세요.", "warning");
+			$('input[name=userName]').val('');
+			$('input[name=userNo]').val('');
+		}
+	   userCk();
+   })
+   
+  $('#remove').click(() => {
+	   if($("input[name=userNo]").is(":checked")){
+		   let check = $("input[name=userNo]:checked");
+		   check.parent().parent().remove();
+		   swal("성공", "삭제가 완료되었습니다.", "success");
+	   }else {
+		   swal("실패", "삭제할 사용자를 선택해주세요.", "warning");
+	   }
+	   userCk();
+   })
+   
+   $('#edit').click(() => {
+	   if($("input[name=userNo]").is(":checked") && $('input[name=userName]').val()){
+		   let name = $('input[name=userName]').val();
+		   let check = $("input[name=userNo]:checked");
+		   check.parent().siblings().eq(0).html(name);
+		   check.parent().siblings().eq(1).html(`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`);
+		   swal("성공", "수정이 완료되었습니다.", "success");
+		   $('input[name=userName]').val('');
+	   }else {
+		   swal("실패", "수정할 사용자를 선택하고 이름을 입력해주세요.", "warning");
+	   }
+   })
+   
+});
+</script>
+<style>
+header {
+	border: solid black 1px;
+	text-align: center;
+}
+
+table, th, td, #msg {
+	text-align: center;
+}
+
+</style>
+</head>
+<body>
+	<div class='container'>
+		<div class='well'>
+			<header>
+				<h3>U M S</h3>
+			</header>
+		</div>
+
+		<form>
+			<div class='form-group'>
+				<input name='userName' type='text' class='form-control'
+					placeholder='사용자명' maxlength='3'>
+			</div>
+
+			<div class='btn-group btn-group-justified'>
+				<div class='btn-group'>
+					<button type='button' class='btn btn-default' id='list'>
+						<span class='glyphicon glyphicon-list'></span> 목록
+					</button>
+				</div>
+				<div class='btn-group'>
+					<button type='button' class='btn btn-default' id='add'>
+						<span class='glyphicon glyphicon-plus'></span> 가입
+					</button>
+				</div>
+				<div class='btn-group'>
+					<button type='button' class='btn btn-default' id='edit'>
+						<span class='glyphicon glyphicon-asterisk'></span> 수정
+					</button>
+				</div>
+				<div class='btn-group'>
+					<button type='button' class='btn btn-default' id='remove'>
+						<span class='glyphicon glyphicon-remove'></span> 탈퇴
+					</button>
+				</div>
+			</div>
+		</form>
+		<table class='table table-hover'>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>이름</th>
+					<th>등록일</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr></tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

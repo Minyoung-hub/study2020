@@ -1,0 +1,22 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(() => {
+	let h1 = $('h1');
+	
+	console.log(h1.width(), h1.height());
+	
+	h1.width('200px');
+	h1.height('100px');
+	
+	console.log(h1.width(), h1.height());
+});
+</script>
+<style>
+h1{
+	border: 1px solid;
+}
+</style>
+
+<h1>Hello</h1>
+<h1>World</h1>

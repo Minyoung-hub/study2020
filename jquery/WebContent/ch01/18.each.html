@@ -1,0 +1,18 @@
+<meta charset='utf-8'>
+<script src = 'http://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+	$.each(['foo', 'bar', 'baz'], 
+			(idx, val) => console.log(idx + ':' + val));
+	/*
+	0: foo
+	1: bar
+	2: baz
+	*/
+	
+	$.each({foo. 'bar', bar: 'baz'},
+			(key, val) => console.log(key + ': ' + val));
+	/*
+	foo: bar
+	bar: baz
+	*/
+</script>

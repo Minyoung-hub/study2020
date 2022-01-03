@@ -1,0 +1,50 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTDConfig2.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- DB접속 정보  -->
+	<properties resource = 'config/jdbc.properties'/> 
+	
+	<!-- typeAlias: class full name 에 별명을 붙인다. -->
+	<typeAliases>
+		<typeAlias alias = 'user' type= 'ch02.User'/>
+	</typeAliases>
+	
+	<environments default = "development">
+		<environment id = "development">
+			<!-- 
+				-JDBC: 간단한 JDBC 트랜잭션 처리를 한다.
+				-MANAGED: container에  transaction 처리를 맡긴다.
+			-->
+			<transactionManager type= 'JDBC'/>
+			
+			<!-- 
+				-UNPOOLED: 매번 요청에 대해 커넥션을 열고 닫는다.
+				  요청때마다 connection 을 만든다.
+				-POOLED: DataSource에 풀링이 적용된 JDBC 커넥션을 위한 구현체이다.
+				 connection pool을 만든다.
+				-JNDI:container에 설정된 connection pool 을 이용한다.
+				  이 DataSource 구현체는 컨테이너에 따라 설정이 변경되며, 
+				 JNDI 컨텍스트를 참조한다. : initial_context, data_source
+			 -->
+			<dataSource type = "POOLED">
+				<property name = 'driver' value = "${JDBC.Driver}"/>
+				<property name = 'url' value = "${JDBC.ConnectionURL}"/>
+				<property name = 'username' value = "${JDBC.Username}"/>
+				<property name = 'password' value = "${JDBC.Password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+		
+		<mappers>
+			<mapper resource= 'ch02/ex01/sqlMap.xml'/>
+			<mapper resource= 'ch02/ex02/sqlMap.xml'/>
+			<mapper resource= 'ch02/ex03/sqlMap.xml'/>
+			<mapper resource= 'ch02/ex04/sqlMap.xml'/>
+			<mapper resource= 'ch05/ex01/sqlMap.xml'/>
+			<mapper resource= 'ch05/ex02/sqlMap.xml'/>
+			<mapper resource= 'ch05/ex03/sqlMap.xml'/>
+			<mapper resource= 'ch05/ex04/sqlMap.xml'/>
+			<mapper resource= 'ch05/ex05/sqlMap.xml'/>
+		</mappers>
+</configuration>
