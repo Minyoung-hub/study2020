@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title></title>
+		<style>
+			div{
+				background-image: url(img/leaf.jpg);
+				background-repeat: no-repeat;
+				border: 10px dotted black;
+				width: 150px;
+				height: 220px;
+				padding: 20px;
+				margin: 5px;
+				float: left;
+			}
+			
+			#one{
+				background-origin: border-box;
+			}
+			
+			#two{
+				background-origin: padding-box;
+			}
+			
+			#three{
+				background-origin: center-box;
+			}
+		</style>
+</head>
+<body>
+	<div></div>
+	<div id='one'></div>
+	<div id='two'></div>
+	<div id='three'></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'/>
+<title>a target iframe</title>
+</head>
+<body>
+<nav>
+	<ul>
+		<li>
+			<a href = 'http://naver.com/'>
+			네이버 default</a>
+		</li>
+		<li>
+			<a href = 'http://naver.com/' target = '_blank'>
+			네이버 _blank</a>
+		</li>
+		<li>
+			<a href = 'http://naver.com/' target = '_self'>
+			네이버 _self</a>
+		</li>
+		<li>
+			<a href = 'child.html' target = 'son'>
+			자식 _son</a>
+		</li>
+	</ul>
+</nav>
+	
+	<iframe name = 'son' src = 'http://www.nate.com/' 
+	width = '900' height = '600'>
+	</iframe>
+</body>
+</html>

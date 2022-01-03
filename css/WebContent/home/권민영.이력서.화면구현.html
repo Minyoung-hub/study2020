@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title></title>
+		<style>
+			div{
+				width: 700px;
+				text-align: center;
+				font-weight: bold;
+				font-size: 2em;
+				margin-top: 15px;
+			}
+		
+			table{
+				width: 700px;
+				border : 2px solid gray;
+				border-collapse: collapse;
+				text-align: center;
+				margin: 20px;
+			}
+			
+			caption{
+				text-align: left;
+				font-weight: bold;
+				font-size: 1.3em;
+				margin-bottom: 10px;
+			}
+			
+			#list{
+				background-color: lightgray;
+				height: 20px;
+			}
+			
+			tr, td, th{
+				border : 1px solid black;
+				border-collapse: collapse;
+			}
+			
+			td{
+				height: 27px;
+			}
+		</style>
+</head>
+<body>
+	<div>이 력 서</div>
+	<table>
+	<caption>1. 인적사항</caption>
+		<tr>
+			<th rowspan = '2'>성명</th>
+			<th>한글</th>
+			<td>권민영</td>
+			<th>생년월일</th>
+			<td>1997.01.16</td>
+			<td rowspan = '4'>
+			<img src = 'resume.gif' 
+			width = '123' height = '160'></td>
+		</tr>
+		<tr>
+			<th>영 문</th>
+			<td>KWON MIN YOUNG</td>
+			<th>홈페이지</th>
+			<td>http://naver.com</td>
+		</tr>
+		<tr>
+			<th>연락처</th>
+			<th>휴대폰</th>
+			<td>010-6693-4420</td>
+			<th>e-mail</th>
+			<td>kmy970116@naver.com</td>
+		</tr>
+		<tr>
+			<th>주소</th>
+			<td colspan = '4'>서울시 강서구 마곡서로 170 410호</td>
+		</tr>	
+	</table>
+	
+	<table>
+	<caption>2. 학력사항</caption>
+		<tr id = 'list'>
+			<th>학교명</th>
+			<th>전공</th>
+			<th>입학일자</th>
+			<th>졸업일자</th>
+			<th>졸업구분</th>
+			<th>소 재 지</th>
+		</tr>
+		<tr>
+			<td>세종대학교</td>
+			<td>정자정보통신공학</td>
+			<td>2015.03.02</td>
+			<td>2020.02.21</td>
+			<td>
+				<input type = 'radio' name = 'grad' value='grad' checked>졸업
+				<input type = 'radio' name = 'grad' value='yet'>예정
+			</td>
+			<td>대한민국</td>
+		</tr>
+		<tr>
+			<td>쌍용대학원</td>
+			<td>컴퓨터공학</td>
+			<td>2019.12.23</td>
+			<td>2020.07.03</td>
+			<td>
+				<input type = 'radio' name = 'grad2' value='grad' checked>졸업
+				<input type = 'radio' name = 'grad2' value='yet'>예정
+			</td>
+			<td>대한민국</td>
+		</tr>
+	</table>
+	
+	<table>
+	<caption>3. 자격사항</caption>
+		<tr id = 'list'>
+			<th>자격증명</th>
+			<th>등 급</th>
+			<th>취 득 일</th>
+			<th>발급기관</th>
+		</tr>
+		<tr>
+			<td>OPIc</td>
+			<td>IH</td>
+			<td>2019.03.21</td>
+			<td>OPIc기관</td>
+		</tr>
+		<tr>
+			<td>TOEIC</td>
+			<td>900</td>
+			<td>2019.05.30</td>
+			<td>TOEIC기관</td>
+	</table>
+</body>
+</html>

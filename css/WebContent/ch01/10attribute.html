@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title></title>
+		<style>
+			a[target] {
+				border: 1px solid;
+			}
+			
+			a[href = 'fire.html'] {
+				text-decoration: none;
+			}
+			
+			a[class ~= 'best'] { /* best 단어가 포함되면  */
+				background: pink;
+			}
+			
+			a[class|= 'best'] { /*  */
+				border: 1px dotted;
+			}
+			
+			a[class^= 'best'] {
+				background: orange;
+			}
+			
+			a[class$= 'best'] {
+				background: red;
+			}
+			
+			a[class*= 'best'] {
+				background: lightgreen;
+			}
+		</style>
+</head>
+<body>
+	<ul>
+		<li><a href = "tree.html" target = "_blank">목</a></li>
+		<li><a href = "fire.html">화</a></li>
+		<li><a class = "my best choice">토</a></li>
+		<li><a class = "best-choice">금</a></li>
+		<li><a class = "my best">수</a></li>
+		<li><a class = "mytotal">오행</a></li>
+	</ul>
+</body>
+</html>

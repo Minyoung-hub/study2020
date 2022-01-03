@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title></title>
+		<style>
+			div{
+				background-image: url(img/leaf.jpg);
+				border: 1px solid black;
+				width: 200px;
+				height: 220px;
+				margin: 5px;
+				float: left;
+			}
+			
+			#one{
+				background-size: contain;
+			}
+			
+			#two{
+				background-size: cover;
+			}
+			
+			#three{
+				background-size: 100px 100px;
+				background-repeat: no-repeat;
+			}
+			
+			#four{
+				background-size: 50% 50%;
+				background-repeat: no-repeat;
+			}
+		</style>
+</head>
+<body>
+	<div></div>
+	<div id='one'></div>
+	<div id='two'></div>
+	<div id='three'></div>
+	<div id='four'></div>
+</body>
+</html>
